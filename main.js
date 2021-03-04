@@ -86,6 +86,22 @@ console.log(
   "For the string 'Whoa, I am the best!', console out the letters individually, but also capitalize the letters in the third word."
 );
 
+let numSpacesBefore = 0;
+
+for (const letter of string6) {
+  // Handle spaces
+  if (letter === " ") {
+    numSpacesBefore = numSpacesBefore + 1;
+  }
+
+  // Handles other chars
+  if (numSpacesBefore === 2) {
+    console.log(letter.toUpperCase(), numSpacesBefore);
+  } else {
+    console.log(letter, numSpacesBefore);
+  }
+}
+
 console.log("##### Challenge 7 #####");
 // 7.
 //
@@ -93,6 +109,13 @@ console.log("##### Challenge 7 #####");
 //  individually, but backwards. That is, the first console log should be
 // `.`, followed by `s`, followed by `d`, and so on.
 let string7 = "I am become death, destroyer of worlds.";
+console.log(
+  "For the string 'I am become death, destroyer of worlds.', console out the letters individually, but backwards. That is, the first console log should be `.`, followed by `s`, followed by `d`, and so on."
+);
+
+for (let i = string7.length - 1; i >= 0; i--) {
+  console.log(string7[i]);
+}
 
 console.log("##### Challenge 8 #####");
 // 8.
@@ -107,3 +130,18 @@ const names =
 // You'll know you're at a new person's name when you hit the pipe character.
 
 // Don't print the pipes!
+
+console.log(
+  "Console out the individual letters of each person in class, which are in the string above. Every time you start a new name (including the first one!), console out the string: 'Here today is:'."
+);
+
+let name = "";
+for (const char of names) {
+  if (char === "|") {
+    console.log(`Here today is: ${name}`);
+    name = "";
+  } else {
+    name += char;
+  }
+}
+console.log(`Here today is: ${name}`);
